@@ -1,16 +1,33 @@
 package se.lexicon.se.Ultimatetest;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 public class Visit {
+
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+    strategy = "org.hibernate.id.UUIDGenerator"
+    )
+
 
     private String visitId;
     private Pet pet;
     LocalDate localDate;
     private String description;
+
+    public Visit(){
+
+    }
 
     public Visit(String visitId, Pet pet, LocalDate localDate, String description) {
         this.visitId = visitId;
@@ -19,11 +36,6 @@ public class Visit {
         this.description = description;
     }
 
-    public Visit(Pet pet, LocalDate localDate, String description) {
-        this.pet = pet;
-        this.localDate = localDate;
-        this.description = description;
-    }
 
     public String getVisitId() {
         return visitId;

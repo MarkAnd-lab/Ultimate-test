@@ -1,16 +1,22 @@
 package se.lexicon.se.Ultimatetest;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 public class Pet {
+    @Id
     private String petId;
     private String name;
-    LocalDate birthDate;
-    PetType petType;
-    Owner owner;
+    private LocalDate birthDate;
+    private PetType petType;
+    private Owner owner;
+
+    public Pet(){
+
+    }
 
     public Pet(String petId, String name, LocalDate birthDate, PetType petType, Owner owner) {
         this.petId = petId;

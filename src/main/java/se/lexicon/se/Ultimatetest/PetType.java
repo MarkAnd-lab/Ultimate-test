@@ -1,10 +1,12 @@
 package se.lexicon.se.Ultimatetest;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
 public class PetType {
+    @Id
     int id;
     String name;
 

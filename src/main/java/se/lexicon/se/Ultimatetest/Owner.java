@@ -1,16 +1,17 @@
 package se.lexicon.se.Ultimatetest;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
 @RestController
 public class Owner {
+
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -25,6 +26,9 @@ public class Owner {
     private String lastName;
     private String address;
     private String telephone;
+
+    public Owner(){
+    }
 
     public Owner(String ownerId, String firstName, String lastName, String address, String telephone) {
         this.ownerId = ownerId;
